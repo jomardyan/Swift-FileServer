@@ -1,0 +1,61 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+        xmlns:local="clr-namespace:FSOperations"
+        xmlns:NTFSControl="clr-namespace:SwiftNTFS;assembly=NTFSControl" x:Class="FSOperations.MainWindow"
+        Height="582"
+        Width="768"
+        mc:Ignorable="d"
+        Title="FileServer Operations tool" ResizeMode="NoResize" Background="White">
+
+    <Grid Height="543" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="467*" />
+            <RowDefinition Height="39*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="67*" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="Domain" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="swiftit.int" VerticalAlignment="Top" Width="212" Margin="125,34,0,0" Grid.Column="1" />
+        <TextBox x:Name="ADOU" HorizontalAlignment="Left" Height="66" Margin="125,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Grid.Column="1" />
+        <TextBox ToolTip="Example: C:\Dir1\ServerLoc" x:Name="FSLoc" HorizontalAlignment="Left" Height="62" Margin="16,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Grid.Column="1" TextChanged="FSLoc_TextChanged" />
+        <CheckBox x:Name="AutoNTFS" Content="Automaticaly assign NTFS permissions" HorizontalAlignment="Left" Margin="19,307,0,0" VerticalAlignment="Top" Height="28" Width="234" Checked="AutoNTFS_Checked" Unchecked="AutoNTFS_Unchecked" Grid.Column="1" Background="#FFFFB5B5" />
+        <Label x:Name="LabFSLocation" Content="Top-level Directory" HorizontalAlignment="Left" Margin="16,330,0,0" VerticalAlignment="Top" Height="26" Width="114" Grid.Column="1" />
+        <Label Content="Domain" HorizontalAlignment="Left" Margin="16,34,0,0" VerticalAlignment="Top" Height="23" Width="101" RenderTransformOrigin="2.129,1.074" Grid.Column="1" />
+        <Label Content="AD FS OU" Margin="16,62,0,0" VerticalAlignment="Top" Height="66" Width="101" RenderTransformOrigin="0.802,0.536" HorizontalAlignment="Left" Grid.Column="1" />
+        <Label Content="Folder Name&#xD;&#xA;AD/SG" HorizontalAlignment="Left" Margin="16,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.357,0.538" Height="40" Width="101" Grid.Column="1" />
+        <TextBox x:Name="TB_Name" HorizontalAlignment="Left" Height="23" Margin="125,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" Grid.Column="1" />
+        <Ellipse x:Name="FSStatus"  Grid.Column="1" Fill="Transparent" HorizontalAlignment="Left" Height="12" Margin="125,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="12" RenderTransformOrigin="-0.667,0.583">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform Y="-1.992" />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Button Content="Start Operation" HorizontalAlignment="Left" Margin="192,469,0,0" VerticalAlignment="Top" Width="151" Height="22" Grid.Column="1" BorderBrush="#FF3B4DFF" Background="#FFD6D6D6" Click="Button_Click_1" />
+        <Button Content="Load Config" Grid.Column="1" HorizontalAlignment="Left" Margin="19,469,0,0" VerticalAlignment="Top" Width="151" Height="22" BorderBrush="#FF499CFF" Click="Button_Click" />
+        <Label Content="Debug info" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="69" />
+        <ProgressBar x:Name="PBar" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="66,465,0,0" VerticalAlignment="Top" Width="186" Value="1" />
+        <GroupBox Grid.ColumnSpan="2" Header="Access Level" HorizontalAlignment="Left" Height="100" Margin="16,198,0,0" VerticalAlignment="Top" Width="321">
+            <Grid HorizontalAlignment="Left" Height="78" Margin="101,0,-2,0" VerticalAlignment="Top" Width="210">
+                <CheckBox x:Name="cFS_R" Content="AD and FS R--" ToolTip="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="17" Width="97" Margin="3,10,0,0" Checked="CFS_R_Checked" Unchecked="CFS_R_Unchecked" />
+                <CheckBox x:Name="cFS_RW" Content="AD and FS RW-" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16" Width="97" Margin="3,32,0,0" Checked="CFS_RW_Checked" Unchecked="CFS_RW_Unchecked" />
+                <CheckBox x:Name="cFS_RWX" Content="AD and FS RWX" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16" Width="114" Margin="3,53,0,0" Checked="CFS_RWX_Checked" Unchecked="CFS_RWX_Unchecked" />
+            </Grid>
+        </GroupBox>
+        <Label Content="Progres" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.078,0.923" Grid.Column="2" Height="26" Width="51" />
+        <Button Content="Browse Locaion" Grid.Column="1" HorizontalAlignment="Left" Margin="253,418,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_4" />
+        <RichTextBox Grid.Column="2" HorizontalAlignment="Left" Height="395" Margin="10,43,0,0" VerticalAlignment="Top" Width="333" x:Name="RichLog" FontSize="10" IsEnabled="False" Background="Black" >
+            <FlowDocument/>
+        </RichTextBox>
+    </Grid>
+</Window>
