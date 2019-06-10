@@ -32,8 +32,7 @@ namespace FSOperations
 
         void SwiftLogger(object sender, EventArgs eventArgs)
         {
-            logger.Info($"Some Log  {sender.ToString()} ");
-            MessageBox.Show("TestBoc");
+            logger.Info($" Log  {sender.ToString()} ");
 
         }
 
