@@ -200,12 +200,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NTFSControl\SwiftNTFS.csproj">
-      <Project>{ed4711a8-f816-4da8-a9b9-84a68eaba1f8}</Project>
-      <Name>SwiftNTFS</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>

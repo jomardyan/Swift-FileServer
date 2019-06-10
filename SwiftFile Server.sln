@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swift FileServer", "Swift FileServer.csproj", "{3F52AB7A-6FE0-4264-95F0-F8016AF97922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftNTFS", "NTFSControl\SwiftNTFS.csproj", "{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftNTFS", "SwiftNTFS\SwiftNTFS.csproj", "{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
