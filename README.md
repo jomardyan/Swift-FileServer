@@ -1,4 +1,4 @@
-# **Automatic Fileserver deployment tool  in Windows Active Directory environment**
+# **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha relase) 
 
 1. Fill domain information
 2. Write Folder name (Active directory will use the same name to create AD Group) Scheme below
@@ -9,3 +9,8 @@
   3.-- RWX— Read + Write + Modify
 4. Browse top level directory, typically it&#39;s the fileserver root directory.
 5. Click Start Operation. Software will create New folder, AD Security Group and will assign Permission
+
+Program requirements. 
+1. Latest powershell version installed. 
+2. .NET Framefork 4.7.2
+3. Administrative rights of Domain ans FileServer. 
