@@ -26,14 +26,20 @@ using System.Diagnostics;
 
 namespace SwiftNTFS
 {
+    public class EngineEventArgs : EventArgs
+    {
+        public string OriginName;
+        public string OriginMesage;
+    }
+
     //SetAllPermissions
     /// <summary>
     /// </summary>
     public class PermissionsEngine
     {
         public readonly string name = "Engine";
-        public event EventHandler DataSetStarted;
-        public event EventHandler DataSetFinished;
+        public event EventHandler<EngineEventArgs> DataSetStarted;
+        public event EventHandler<EngineEventArgs> DataSetFinished;
 
         public PermissionsEngine()
         {
@@ -83,7 +89,15 @@ namespace SwiftNTFS
 
         public void DataSet(string FileServerRootDirectory, string FolderName, string ADServer, string ActiveDirectoryOUPath)
         {
-            DataSetStarted?.Invoke(this, null);
+            #region StartEvents
+            EngineEventArgs engineEventArgs = new EngineEventArgs
+            {
+                OriginName = name,
+                OriginMesage = "DataSet Operation Started"
+            };
+            DataSetStarted?.Invoke(this, engineEventArgs);
+            #endregion
+            //
             // Set access
             acl.Access = true;
             string FolderNamewWithFlag = "";
@@ -109,7 +123,8 @@ namespace SwiftNTFS
             gFolderNamewWithFlag = FolderNamewWithFlag;
             @gfsloc = SwiftIO.BulldDir(FolderName, FileServerRootDirectory);
             OriginalFolderName = FolderName;
-            DataSetFinished?.Invoke(this, null);
+            engineEventArgs.OriginMesage = "DataSet Operation Finished";
+            DataSetFinished?.Invoke(this, engineEventArgs);
         }
 
         public void Start()

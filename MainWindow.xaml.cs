@@ -58,9 +58,9 @@ namespace FSOperations
             
         }
 
-        void SwiftLogger(object sender, EventArgs eventArgs)
+        void SwiftLogger(object sender, EngineEventArgs eventArgs)
         {
-            logger.Info($" Log  {sender.ToString()} ");
+            logger.Info($" Log  {sender.ToString()} - {eventArgs.OriginName} - {eventArgs.OriginMesage}");
 
         }
 
@@ -130,7 +130,7 @@ namespace FSOperations
                     
                     //logger.Info($"Started job: {TB_Name.Text} {item.Accessflag}");
 
-                    item.DataSetFinished += new EventHandler(SwiftLogger);
+                    item.DataSetFinished += SwiftLogger;
                     item.DataSet(@FSLoc.Text, TB_Name.Text, Domain.Text, ADOU.Text);
                     item.Start();
                     logger.Info($"Finished: {TB_Name.Text} {item.Accessflag}");

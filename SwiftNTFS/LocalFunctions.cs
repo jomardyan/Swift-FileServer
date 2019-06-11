@@ -12,6 +12,8 @@ namespace SwiftNTFS
     /// </summary>
     public class LocalFunctions
     {
+        public readonly string name = "LocalFunctions";
+
         EventHandler CreadeAdGroupStarted;
         EventHandler CreadeAdGroupFinished;
 

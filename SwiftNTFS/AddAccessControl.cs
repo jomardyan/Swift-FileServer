@@ -10,6 +10,8 @@ namespace SwiftNTFS
     /// </summary>
     internal class AddAccessControl
     {
+        public readonly string name = "AddAccessControl";
+
         public void AddDirectorySecurity(string FileName, string Account, FileSystemRights Rights, AccessControlType ControlType)
         {
             DirectoryInfo dInfo = new DirectoryInfo(FileName);

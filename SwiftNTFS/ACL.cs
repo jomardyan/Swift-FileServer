@@ -7,6 +7,8 @@ namespace SwiftNTFS
 {
     public class ACL
     {
+        public readonly string name = "ACL";
+
         private AccessControlType FSAccess;
 
         /// <summary>

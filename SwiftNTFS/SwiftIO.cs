@@ -9,6 +9,8 @@ namespace SwiftNTFS
 {
     public static class SwiftIO
     {
+        public static readonly string name = "SwiftIO";
+
         //Notice
         /// <summary>
         /// </summary>

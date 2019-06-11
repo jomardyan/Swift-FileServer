@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swift FileServer", "Swift F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftNTFS", "SwiftNTFS\SwiftNTFS.csproj", "{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonFeatures", "CommonFeatures\CommonFeatures.csproj", "{4FDCFAD7-9F03-40B1-99BF-E16766B6F8BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4711A8-F816-4DA8-A9B9-84A68EABA1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FDCFAD7-9F03-40B1-99BF-E16766B6F8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDCFAD7-9F03-40B1-99BF-E16766B6F8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDCFAD7-9F03-40B1-99BF-E16766B6F8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDCFAD7-9F03-40B1-99BF-E16766B6F8BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
