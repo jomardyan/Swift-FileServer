@@ -1,4 +1,4 @@
-# **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha relase) 
+# **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha Release) 
 
 1. Fill domain information
 2. Write Folder name (Active directory will use the same name to create AD Group) Scheme below
