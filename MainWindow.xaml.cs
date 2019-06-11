@@ -30,15 +30,9 @@ using SwiftNTFS;
 using System.Resources;
 using NLog;
 using NLog.Config;
-
-using static SwiftNTFS.PermissionsEngine;
 using FS_Operations.Helper;
 using NLog.Targets.Wrappers;
-
-
-
-
-
+using CommonFeatures;
 
 namespace FSOperations
 {
@@ -60,7 +54,12 @@ namespace FSOperations
 
         void SwiftLogger(object sender, EngineEventArgs eventArgs)
         {
-            logger.Info($" Log  {sender.ToString()} - {eventArgs.OriginName} - {eventArgs.OriginMesage}");
+            logger.Info($" Log  {sender.ToString()} - {eventArgs.OriginName} - {eventArgs.OriginMessage}");
+
+        }
+        void SwiftLogger(object sender, LoggerEventArgs eventArgs)
+        {
+            logger.Info($" Log  {sender.ToString()} - {eventArgs.OriginName} - {eventArgs.LogMessage}");
 
         }
 

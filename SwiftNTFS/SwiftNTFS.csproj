@@ -89,5 +89,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonFeatures\CommonFeatures.csproj">
+      <Project>{4fdcfad7-9f03-40b1-99bf-e16766b6f8ba}</Project>
+      <Name>CommonFeatures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

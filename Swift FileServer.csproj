@@ -213,6 +213,10 @@
     <Resource Include="siwftit_logo_1_x2r_icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="CommonFeatures\CommonFeatures.csproj">
+      <Project>{4fdcfad7-9f03-40b1-99bf-e16766b6f8ba}</Project>
+      <Name>CommonFeatures</Name>
+    </ProjectReference>
     <ProjectReference Include="SwiftNTFS\SwiftNTFS.csproj">
       <Project>{ed4711a8-f816-4da8-a9b9-84a68eaba1f8}</Project>
       <Name>SwiftNTFS</Name>

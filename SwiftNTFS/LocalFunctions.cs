@@ -4,6 +4,7 @@ using System.DirectoryServices.AccountManagement;
 using System.Management.Automation;
 using System.Text;
 using System.Windows;
+using CommonFeatures;
 
 // Copyright Hayk Jomardyan
 namespace SwiftNTFS
@@ -12,18 +13,20 @@ namespace SwiftNTFS
     /// </summary>
     public class LocalFunctions
     {
+        public event EventHandler<LoggerEventArgs> LoggerEvent;
         public readonly string name = "LocalFunctions";
-
-        EventHandler CreadeAdGroupStarted;
-        EventHandler CreadeAdGroupFinished;
-
-
-
+        
         /// <summary>
         /// Get Active session user UPN (string), for future use
         /// </summary>
         private string LoadActiveDirectoryIdentity()
         {
+            LoggerEventArgs loggerEventArgs = new LoggerEventArgs
+            {
+                OriginName = name,
+                OriginMessage = "Log Event"
+            };
+            LoggerEvent?.Invoke(this, loggerEventArgs);
             try
             {
                 var user = UserPrincipal.Current.UserPrincipalName;

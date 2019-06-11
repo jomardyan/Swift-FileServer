@@ -21,16 +21,13 @@
 //SOFTWARE.
 
 
+using CommonFeatures;
 using System;
 using System.Diagnostics;
 
 namespace SwiftNTFS
 {
-    public class EngineEventArgs : EventArgs
-    {
-        public string OriginName;
-        public string OriginMesage;
-    }
+    
 
     //SetAllPermissions
     /// <summary>
@@ -93,7 +90,7 @@ namespace SwiftNTFS
             EngineEventArgs engineEventArgs = new EngineEventArgs
             {
                 OriginName = name,
-                OriginMesage = "DataSet Operation Started"
+                OriginMessage = "DataSet Operation Started"
             };
             DataSetStarted?.Invoke(this, engineEventArgs);
             #endregion
@@ -123,7 +120,7 @@ namespace SwiftNTFS
             gFolderNamewWithFlag = FolderNamewWithFlag;
             @gfsloc = SwiftIO.BulldDir(FolderName, FileServerRootDirectory);
             OriginalFolderName = FolderName;
-            engineEventArgs.OriginMesage = "DataSet Operation Finished";
+            engineEventArgs.OriginMessage = "DataSet Operation Finished";
             DataSetFinished?.Invoke(this, engineEventArgs);
         }
 

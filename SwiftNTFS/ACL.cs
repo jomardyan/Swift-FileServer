@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommonFeatures;
+using System;
 using System.Diagnostics;
 using System.Security.AccessControl;
 using System.Windows;
@@ -7,6 +8,8 @@ namespace SwiftNTFS
 {
     public class ACL
     {
+        public event EventHandler<LoggerEventArgs> LoggerEvent;
+
         public readonly string name = "ACL";
 
         private AccessControlType FSAccess;
@@ -49,6 +52,12 @@ namespace SwiftNTFS
         //OROGINAL
         public void Set(string dir, string user)
         {
+            LoggerEventArgs loggerEventArgs = new LoggerEventArgs
+            {
+                OriginName = name,
+                OriginMessage = "Set Event started"
+            };
+            LoggerEvent?.Invoke(this, loggerEventArgs);
             try
             {
                 Debug.WriteLine("AclSet Started");
