@@ -9,7 +9,7 @@
         Height="582"
         Width="768"
         mc:Ignorable="d"
-        Title="FileServer Operations tool" ResizeMode="NoResize" Background="White">
+        Title="Swift FileServer V1.1 Alpha Relase" ResizeMode="NoResize" Background="White">
 
     <Grid Height="543" VerticalAlignment="Top">
         <Grid.RowDefinitions>

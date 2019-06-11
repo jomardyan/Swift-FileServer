@@ -176,7 +176,6 @@
       <Visible>False</Visible>
     </AdditionalFiles>
     <None Include="app.manifest" />
-    <Resource Include="Helper\README_NLog_WpfRichTextBox.txt" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
