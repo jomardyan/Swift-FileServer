@@ -53,7 +53,7 @@
             </Grid>
         </GroupBox>
         <Label Content="Progres" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.078,0.923" Grid.Column="2" Height="26" Width="51" />
-        <Button Content="Browse Locaion" Grid.Column="1" HorizontalAlignment="Left" Margin="253,418,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_4" />
+        <Button Content="Browse Location" Grid.Column="1" HorizontalAlignment="Left" Margin="253,418,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_4" />
         <RichTextBox Grid.Column="2" HorizontalAlignment="Left" Height="395" Margin="10,43,0,0" VerticalAlignment="Top" Width="333" x:Name="RichLog" FontSize="10" IsEnabled="False" Background="Black" >
             <FlowDocument/>
         </RichTextBox>
