@@ -257,6 +257,17 @@ namespace FSOperations
 
             });
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AboutBox aboutbox = new AboutBox();
+            aboutbox.Show();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 
 
