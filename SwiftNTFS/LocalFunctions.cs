@@ -66,7 +66,7 @@ namespace SwiftNTFS
             ps.AddParameter("GroupCategory", "Security");
             ps.AddParameter("Description", Description);
 
-            //ps.AddParameter("-OtherAttributes", "@{info="Owner: "}");
+            //ps.AddParameter("-OtherAttributes", "@{info=\"Owner: \"}");
 
             try
             {

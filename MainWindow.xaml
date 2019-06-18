@@ -60,6 +60,7 @@
         
         <Menu Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="762" BorderBrush="#FFA4A4A4" BorderThickness="0 0 0 1">
             <MenuItem Header="File">
+                <MenuItem Header="Configurations" Click="MenuItem_Click_2" />
                 <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
             </MenuItem>
             <MenuItem Header="About">

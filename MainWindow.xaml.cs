@@ -268,6 +268,12 @@ namespace FSOperations
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            DefaultConfigurator configurator = new DefaultConfigurator();
+            configurator.Show();
+        }
     }
 
 
