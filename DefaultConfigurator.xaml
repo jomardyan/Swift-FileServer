@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FSOperations"
         mc:Ignorable="d"
-        Title="DefaultConfigurator" Height="450" Width="589">
-    <Grid>
-        <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="581" Margin="0">
+        Title="DefaultConfigurator" Height="450" Width="345">
+    <Grid Margin="0,0,2,0">
+        <Grid HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="335" Margin="0">
             <GroupBox Header="New Default Parameters" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="310">
                 <Grid>
                     <TextBox x:Name="DomainTextBox"     HorizontalAlignment="Left" Height="23" Margin="104,24,0,0" TextWrapping="Wrap"      Text="" VerticalAlignment="Top" Width="194"/>
@@ -18,7 +18,7 @@
                     <Label Content="OU" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
                     <Label Content="FSLocation" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
                     <Label Content="Description" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
-                    
+
                     <Button Content="Reset" HorizontalAlignment="Left" Margin="10,318,0,0" VerticalAlignment="Top" Width="52" Height="30" Click="Button_Click_2"/>
                     <Button Content="Set configs" HorizontalAlignment="Left" Margin="199,318,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Button_Click"/>
                     <Button Content="Load Config" HorizontalAlignment="Left" Margin="104,318,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="Button_Click_1"/>

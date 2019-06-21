@@ -130,7 +130,7 @@ namespace FSOperations
                     //logger.Info($"Started job: {TB_Name.Text} {item.Accessflag}");
 
                     item.DataSetFinished += SwiftLogger;
-                    item.DataSet(@FSLoc.Text, TB_Name.Text, Domain.Text, ADOU.Text);
+                    item.DataSet(@FSLoc.Text, TB_Name.Text, Domain.Text, ADOU.Text, TB_Owner.Text);
                     item.Start();
                     logger.Info($"Finished: {TB_Name.Text} {item.Accessflag}");
                 }

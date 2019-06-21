@@ -11,26 +11,26 @@
         mc:Ignorable="d"
         Title="Swift FileServer V1.1 Alpha Relase" ResizeMode="NoResize" Background="White">
 
-    <Grid Height="543" VerticalAlignment="Top">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="467*" />
-            <RowDefinition Height="39*" />
-        </Grid.RowDefinitions>
+    <Grid Height="572" VerticalAlignment="Top" Margin="0,0,0,-19">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*" />
-            <ColumnDefinition Width="67*" />
-            <ColumnDefinition Width="60*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="Domain" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" ToolTip="EXAMPLE: swiftit.int" VerticalAlignment="Top" Width="212" Margin="125,34,0,0" Grid.Column="1" />
-        <TextBox x:Name="ADOU" HorizontalAlignment="Left" Height="66" Margin="125,62,0,0"   ToolTip="EXAMPLE: " TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Grid.Column="1" />
+        <TextBox x:Name="Domain" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" ToolTip="EXAMPLE: swiftit.int" VerticalAlignment="Top" Width="182" Margin="155,34,0,0" Grid.Column="1" />
+        <TextBox x:Name="ADOU" HorizontalAlignment="Left" Height="66" Margin="155,62,0,0"   ToolTip="EXAMPLE: " TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Grid.Column="1" />
         <TextBox ToolTip="Example: C:\Dir1\ServerLoc" x:Name="FSLoc" HorizontalAlignment="Left" Height="62" Margin="16,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Grid.Column="1" TextChanged="FSLoc_TextChanged" />
         <CheckBox x:Name="AutoNTFS" Content="Automaticaly assign NTFS permissions" HorizontalAlignment="Left" Margin="19,307,0,0" VerticalAlignment="Top" Height="28" Width="234" Checked="AutoNTFS_Checked" Unchecked="AutoNTFS_Unchecked" Grid.Column="1" Background="#FFFFB5B5" />
         <Label x:Name="LabFSLocation" Content="Top-level Directory" HorizontalAlignment="Left" Margin="16,330,0,0" VerticalAlignment="Top" Height="26" Width="114" Grid.Column="1" />
-        <Label Content="Domain" HorizontalAlignment="Left" Margin="16,34,0,0" VerticalAlignment="Top" Height="23" Width="101" RenderTransformOrigin="2.129,1.074" Grid.Column="1" />
-        <Label Content="AD FS OU" Margin="16,62,0,0" VerticalAlignment="Top" Height="66" Width="101" RenderTransformOrigin="0.802,0.536" HorizontalAlignment="Left" Grid.Column="1" />
-        <Label Content="Folder Name&#xD;&#xA;AD/SG" HorizontalAlignment="Left" Margin="16,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.357,0.538" Height="40" Width="101" Grid.Column="1" />
-        <TextBox x:Name="TB_Name" HorizontalAlignment="Left" Height="23" ToolTip="EXAMPLE: " Margin="125,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" Grid.Column="1" />
+        <Label Content="Domain" HorizontalAlignment="Left" Margin="29,34,0,0" VerticalAlignment="Top" Height="23" Width="101" RenderTransformOrigin="2.129,1.074" Grid.Column="1" />
+        <Label Content="AD FS OU" Margin="29,62,0,0" VerticalAlignment="Top" Height="66" Width="101" RenderTransformOrigin="0.802,0.536" HorizontalAlignment="Left" Grid.Column="1" />
+        <Label Content="Folder Name AD/SG" HorizontalAlignment="Left" Margin="29,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.357,0.538" Height="40" Width="120" Grid.Column="1" />
+        <Label Grid.ColumnSpan="2" Content="Folder Owner&#xD;&#xA;" HorizontalAlignment="Left" Margin="29,165,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <TextBox x:Name="TB_Owner" HorizontalAlignment="Left" Height="23" ToolTip="EXAMPLE: thomas.szymanski" Margin="155,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Grid.Column="1" />
+
+        <TextBox x:Name="TB_Name" HorizontalAlignment="Left" Height="23" ToolTip="EXAMPLE: Marketing " Margin="155,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" Grid.Column="1" />
         <Ellipse x:Name="FSStatus"  Grid.Column="1" Fill="Transparent" HorizontalAlignment="Left" Height="12" Margin="125,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="12" RenderTransformOrigin="-0.667,0.583">
             <Ellipse.RenderTransform>
                 <TransformGroup>
@@ -41,7 +41,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Button Content="Start Operation" HorizontalAlignment="Left" Margin="192,469,0,0" VerticalAlignment="Top" Width="151" Height="22" Grid.Column="1" BorderBrush="#FF3B4DFF" Background="#FFD6D6D6" Click="Button_Click_1" />
+        <Button Content="Start Operation" HorizontalAlignment="Left" Margin="192,469,0,0" VerticalAlignment="Top" Width="151" Height="22" Grid.Column="1"  Background="#FFD6D6D6" Click="Button_Click_1" />
         <Button Content="Load Config" Grid.Column="1" HorizontalAlignment="Left" Margin="19,469,0,0" VerticalAlignment="Top" Width="151" Height="22" BorderBrush="#FF499CFF" Click="Button_Click" />
         <Label Content="Debug info" Grid.Column="2" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Height="26" Width="69" />
         <ProgressBar x:Name="PBar" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="66,465,0,0" VerticalAlignment="Top" Width="186" Value="1" />
@@ -53,11 +53,11 @@
             </Grid>
         </GroupBox>
         <Label Content="Progres" HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.078,0.923" Grid.Column="2" Height="26" Width="51" />
-        <Button Content="Browse Location" Grid.Column="1" HorizontalAlignment="Left" Margin="253,418,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_4" />
+        <Button Content="Browse Location" Grid.Column="1" HorizontalAlignment="Left" Margin="253,423,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_4" Height="19.96" />
         <RichTextBox Grid.Column="2" HorizontalAlignment="Left" Height="395" Margin="10,62,0,0" VerticalAlignment="Top" Width="333" x:Name="RichLog" FontSize="10" IsEnabled="False" Background="Black" >
             <FlowDocument/>
         </RichTextBox>
-        
+
         <Menu Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="762" BorderBrush="#FFA4A4A4" BorderThickness="0 0 0 1">
             <MenuItem Header="File">
                 <MenuItem Header="Configurations" Click="MenuItem_Click_2" />

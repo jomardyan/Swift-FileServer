@@ -49,11 +49,19 @@ namespace SwiftNTFS
         /// <param name="ADServer"></param>
         /// <param name="OUpath"></param>
         /// <param name="Name"></param>
-        internal static void CreadeAdGroup(string ADServer, string OUpath, string Name, string Description)
+        internal static void CreadeAdGroup(string ADServer, string OUpath, string Name, string Description, string Owner)
         {
 
+            string OwnerSet()
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.Append("\"@{info=\"");
+                builder.Append("Owner- ");
+                builder.Append(Owner);
+                builder.Append("\"}");
+                return builder.ToString();
+            }
 
-            //Helper
             Debug.WriteLine("Create AD Group Started");
 
             PowerShell ps = PowerShell.Create();
@@ -65,8 +73,7 @@ namespace SwiftNTFS
             ps.AddParameter("GroupScope", "Global");
             ps.AddParameter("GroupCategory", "Security");
             ps.AddParameter("Description", Description);
-
-            //ps.AddParameter("-OtherAttributes", "@{info=\"Owner: \"}");
+            ps.AddParameter("-OtherAttributes", OwnerSet()); 
 
             try
             {
@@ -76,7 +83,6 @@ namespace SwiftNTFS
             {
                 MessageBox.Show("Error while creating Active directory group: " + ex.Message);
             }
-            Debug.WriteLine("Create AD Group Finished");
             ps.Dispose();
         }
 

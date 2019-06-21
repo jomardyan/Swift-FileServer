@@ -40,21 +40,22 @@ namespace SwiftNTFS
 
         public PermissionsEngine()
         {
-            
-                gADServer = null;
-                gOUpath = null;
-                gFolderNamewWithFlag = null;
-                @gfsloc = null;
-                Index = null;
+            gFolderNamewWithFlag = string.Empty;
+            gADServer = string.Empty;
+            gOUpath =   string.Empty;
+            @gfsloc =   string.Empty;
+            gOwner =    string.Empty;
+            Index =     0; 
             
 
 
         }
 
-        private string gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, OriginalFolderName;
+        private string gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, OriginalFolderName, gOwner;
         public string Accessflag { get; set; }
         public bool? NTFSFlag = true;
         public int? Index;
+
 
         private string TBNameBuilder(string name, string r)
         {
@@ -84,7 +85,7 @@ namespace SwiftNTFS
         /// <param name="ADServer"></param>
         /// <param name="ActiveDirectoryOUPath"></param>
 
-        public void DataSet(string FileServerRootDirectory, string FolderName, string ADServer, string ActiveDirectoryOUPath)
+        public void DataSet(string FileServerRootDirectory, string FolderName, string ADServer, string ActiveDirectoryOUPath, string Owner)
         {
             #region StartEvents
             EngineEventArgs engineEventArgs = new EngineEventArgs
@@ -119,6 +120,7 @@ namespace SwiftNTFS
             gOUpath = ActiveDirectoryOUPath;
             gFolderNamewWithFlag = FolderNamewWithFlag;
             @gfsloc = SwiftIO.BulldDir(FolderName, FileServerRootDirectory);
+            gOwner = Owner;
             OriginalFolderName = FolderName;
             engineEventArgs.OriginMessage = "DataSet Operation Finished";
             DataSetFinished?.Invoke(this, engineEventArgs);
@@ -128,7 +130,7 @@ namespace SwiftNTFS
         {
             
             Debug.WriteLine("Main Operation Started");
-            LocalFunctions.CreadeAdGroup(gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc);
+            LocalFunctions.CreadeAdGroup(gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, string.Empty);
             SwiftIO.CreateFolder(@gfsloc);
             acl.Set(@gfsloc, gFolderNamewWithFlag);
             Debug.WriteLine("Main Operation Finished");
