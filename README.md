@@ -1,5 +1,7 @@
 # **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha Release) 
 
+[![Build Status](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_apis/build/status/jomardyan.Swift-FileServer?branchName=master)](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_build/latest?definitionId=4&branchName=master)
+
 1. Fill domain information
 2. Write Folder name (Active directory will use the same name to create AD Group) Scheme below
   1. --FS + Folder name + ACL &quot;FS Marketing RWX&quot;
