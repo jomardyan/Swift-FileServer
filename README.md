@@ -15,4 +15,4 @@
 Program requirements. 
 1. Latest powershell version installed. 
 2. .NET Framework 4.7.2
-3. Administrative rights of Domain ans FileServer. 
+3. Administrative rights of Domain and FileServer. 
