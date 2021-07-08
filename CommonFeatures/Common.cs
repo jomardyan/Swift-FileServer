@@ -3,7 +3,7 @@
 namespace CommonFeatures
 {
     /// <summary>
-    /// Common EventArgs Interface
+    /// Common EventArgs Interface 1
     /// </summary>
     public class CoreEventArgs : EventArgs
     {
