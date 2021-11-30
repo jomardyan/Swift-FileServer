@@ -12,7 +12,7 @@ jobs:
 
   build:
     env:
-      Solution_Name: SwiftFile Server.sln  
+      Solution_Name: Swift FileServer.csproj
 
     runs-on: windows-latest
 
