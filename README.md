@@ -13,6 +13,6 @@
 5. Click Start Operation. Software will create New folder, AD Security Group and will assign Permission
 
 Program requirements. 
-1. Latest powershell version installed. 
+1. Latest powershell  installed. 
 2. .NET Framework 4.7.2
-3. Administrative rights of Domain and FileServer. 
+3. Administrative rights on Domain and FileServer. 
