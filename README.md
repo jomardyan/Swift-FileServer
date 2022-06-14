@@ -12,7 +12,7 @@
 4. Browse top level directory, typically it&#39;s the fileserver root directory.
 5. Click Start Operation. Software will create New folder, AD Security Group and will assign Permission
 
-Program requirements. 
-1. Latest powershell  installed. 
+Program requirements
+1. Latest powershell  installed
 2. .NET Framework 4.7.2
-3. Administrative rights on Domain and FileServer. 
+3. Administrative rights on Domain and FileServer level
