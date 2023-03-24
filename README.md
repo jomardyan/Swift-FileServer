@@ -1,5 +1,7 @@
 # 
 [![Build Status](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_apis/build/status/jomardyan.Swift-FileServer?branchName=master)](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_build/latest?definitionId=4&branchName=master)
+![Github Action](https://github.com/jomardyan/Swift-FileServer/actions/workflows/dotnet-desktop.yml/badge.svg)
+
 
 # **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha Release)
 
