@@ -1,4 +1,5 @@
 # 
+[![Build Status](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_apis/build/status/jomardyan.Swift-FileServer?branchName=master)](https://jomardyan.visualstudio.com/SwiftFileServerGithub/_build/latest?definitionId=4&branchName=master)
 
 # **Automatic Fileserver deployment tool  in Windows Active Directory environment** (Alpha Release)
 
