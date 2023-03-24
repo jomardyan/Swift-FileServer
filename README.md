@@ -16,4 +16,3 @@ Program requirements:
 - Latest version of PowerShell installed.
 - .NET Framework 4.7.2.
 - Administrative rights on both the domain and file server levels.
-
