@@ -17,6 +17,6 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 4.7.2
+        dotnet-version: 7.0
     - name: Build
       run: dotnet build "SwiftFile Server.sln" --configuration Release --verbosity diag
