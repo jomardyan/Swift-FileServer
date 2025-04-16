@@ -89,6 +89,5 @@ namespace SwiftNTFS
 
             return System.IO.Path.Combine(Location, FolderName);
         }
-        }
     }
 }
