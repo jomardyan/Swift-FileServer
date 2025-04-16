@@ -86,10 +86,10 @@ namespace SwiftNTFS
             if (ps != null)
             {
                 ps.Dispose();
-        public static string StBuilder(string Name, string Type)
+            }
         }
 
-        public static string StBuilder(String Name, String Type)
+        public static string StBuilder(string Name, string Type)
         {
             if (Type == "R")
             {

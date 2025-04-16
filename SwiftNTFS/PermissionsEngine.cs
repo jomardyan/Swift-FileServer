@@ -129,7 +129,7 @@ namespace SwiftNTFS
 
             gADServer = ADServer;
             gOUpath = ActiveDirectoryOUPath;
-            @gfsloc = SwiftIO.BulldDir(FolderName, FileServerRootDirectory);
+            @gfsloc = SwiftIO.BuildDir(FolderName, FileServerRootDirectory);
             gOwner = Owner;
             OriginalFolderName = FolderName;
             engineEventArgs.OriginMessage = "DataSet Operation Finished";

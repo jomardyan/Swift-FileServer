@@ -35,7 +35,7 @@ namespace FSOperations
                 config.AppSettings.Settings["Domain"].Value = DomainTextBox.Text;
                 config.AppSettings.Settings["OU"].Value = OUTextBox.Text;
                 config.AppSettings.Settings["FSLocation"].Value = FSLocationTextBox.Text;
-                config.AppSettings.Settings["Description"].Value = DescriptionTextBoc.Text;
+                config.AppSettings.Settings["Description"].Value = DescriptionTextBox.Text;
                 config.Save(ConfigurationSaveMode.Modified);
                 
                 ConfigurationManager.RefreshSection("appSettings");
@@ -63,7 +63,7 @@ namespace FSOperations
             this.DomainTextBox.Text = config.AppSettings.Settings["Domain"].Value;
             this.OUTextBox.Text = config.AppSettings.Settings["OU"].Value;
             this.FSLocationTextBox.Text = config.AppSettings.Settings["FSLocation"].Value;
-            this.DescriptionTextBoc.Text = config.AppSettings.Settings["Description"].Value;
+            this.DescriptionTextBox.Text = config.AppSettings.Settings["Description"].Value;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -72,7 +72,7 @@ namespace FSOperations
             this.DomainTextBox.Clear();
             this.OUTextBox.Clear();
             this.FSLocationTextBox.Clear();
-            this.DescriptionTextBoc.Clear(); 
+            this.DescriptionTextBox.Clear(); 
 
         }
     }
