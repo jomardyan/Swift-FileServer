@@ -1,4 +1,4 @@
-name: .NET
+name: .NET 
 on:
   push:
     branches:
@@ -18,7 +18,6 @@ jobs:
         with:
           dotnet-version: 7.0.x
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore "${{ env.Solution_Name }}"
       - name: Build
-        run: dotnet build "SwiftFile Server.sln" --no-restore
- 
+        run: dotnet build "${{ env.Solution_Name }}" --no-restore
