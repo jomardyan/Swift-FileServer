@@ -34,11 +34,11 @@ namespace SwiftNTFS
                 {
                     user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 }
-                return (string)user;
+                return user;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Debug.WriteLine($"Error: {ex.Message}");
                 return string.Empty;
             }
         }
@@ -73,7 +73,7 @@ namespace SwiftNTFS
             ps.AddParameter("GroupScope", "Global");
             ps.AddParameter("GroupCategory", "Security");
             ps.AddParameter("Description", Description);
-            ps.AddParameter("-OtherAttributes", OwnerSet()); 
+            ps.AddParameter("OtherAttributes", OwnerSet());
 
             try
             {
@@ -83,7 +83,10 @@ namespace SwiftNTFS
             {
                 MessageBox.Show("Error while creating Active directory group: " + ex.Message);
             }
-            ps.Dispose();
+            if (ps != null)
+            {
+                ps.Dispose();
+        public static string StBuilder(string Name, string Type)
         }
 
         public static string StBuilder(String Name, String Type)

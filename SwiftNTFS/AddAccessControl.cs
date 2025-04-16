@@ -12,16 +12,26 @@ namespace SwiftNTFS
     {
         public readonly string name = "AddAccessControl";
 
-        public void AddDirectorySecurity(string FileName, string Account, FileSystemRights Rights, AccessControlType ControlType)
+        public void AddDirectorySecurity(string directoryPath, string account, FileSystemRights rights, AccessControlType controlType)
         {
-            DirectoryInfo dInfo = new DirectoryInfo(FileName);
-            DirectorySecurity dSecurity = dInfo.GetAccessControl();
-            dSecurity.AddAccessRule(new FileSystemAccessRule(Account, Rights,
-            InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit,
-            PropagationFlags.None,
-            ControlType));
+            if (string.IsNullOrWhiteSpace(directoryPath))
+                throw new ArgumentException("Directory path cannot be null or empty.", nameof(directoryPath));
 
-            dInfo.SetAccessControl(dSecurity);
+            if (string.IsNullOrWhiteSpace(account))
+                throw new ArgumentException("Account cannot be null or empty.", nameof(account));
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
+
+            if (!directoryInfo.Exists)
+                throw new DirectoryNotFoundException($"The directory '{directoryPath}' does not exist.");
+
+            DirectorySecurity directorySecurity = directoryInfo.GetAccessControl();
+            directorySecurity.AddAccessRule(new FileSystemAccessRule(account, rights,
+                InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit,
+                PropagationFlags.None,
+                controlType));
+
+            directoryInfo.SetAccessControl(directorySecurity);
         }
     }
 }

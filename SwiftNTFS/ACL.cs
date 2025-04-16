@@ -10,14 +10,14 @@ namespace SwiftNTFS
     {
         public event EventHandler<LoggerEventArgs> LoggerEvent;
 
-        public readonly string name = "ACL";
+        public readonly string Name = "ACL";
 
-        private AccessControlType FSAccess;
+        private AccessControlType _fsAccess;
 
         /// <summary>
-        /// True =&gt; Allow, False =&gt; Denay
+        /// True => Allow, False => Deny
         /// </summary>
-        public bool Access;
+        public bool Access { get; set; }
 
         public bool Modify { get; set; }
         public bool Read { get; set; }
@@ -25,64 +25,49 @@ namespace SwiftNTFS
 
         public override bool Equals(object obj)
         {
-            return obj is ACL aCL &&
-                   FSAccess == aCL.FSAccess &&
-                   Read == aCL.Read &&
-                   Write == aCL.Write &&
-                   Modify == aCL.Modify &&
-                   Access == aCL.Access;
+            return obj is ACL acl &&
+                   _fsAccess == acl._fsAccess &&
+                   Read == acl.Read &&
+                   Write == acl.Write &&
+                   Modify == acl.Modify &&
+                   Access == acl.Access;
         }
 
         public override int GetHashCode()
         {
-            var hashCode = 1083378608;
-            hashCode = hashCode * -1521134295 + FSAccess.GetHashCode();
-            hashCode = hashCode * -1521134295 + Read.GetHashCode();
-            hashCode = hashCode * -1521134295 + Write.GetHashCode();
-            hashCode = hashCode * -1521134295 + Modify.GetHashCode();
-            hashCode = hashCode * -1521134295 + Access.GetHashCode();
-            return hashCode;
+            return HashCode.Combine(_fsAccess, Read, Write, Modify, Access);
         }
 
         /// <summary>
-        /// Set Permissions into onto directory
+        /// Sets permissions on a directory for a specified user.
         /// </summary>
-        /// <param name="dir">Directory</param>
-        /// <param name="user">Username Or Active Directory SG Name</param>
-        //OROGINAL
+        /// <param name="dir">Directory path</param>
+        /// <param name="user">Username or Active Directory Security Group Name</param>
         public void Set(string dir, string user)
         {
-            LoggerEventArgs loggerEventArgs = new LoggerEventArgs
-            {
-                OriginName = name,
-                OriginMessage = "Set Event started"
-            };
-            LoggerEvent?.Invoke(this, loggerEventArgs);
+            LogEvent("Set Event started");
+
             try
             {
                 Debug.WriteLine("AclSet Started");
-                AddAccessControl per = new AddAccessControl();
-                if (Access)
-                {
-                    FSAccess = AccessControlType.Allow;
-                }
-                else
-                {
-                    FSAccess = AccessControlType.Deny;
-                }
+
+                _fsAccess = Access ? AccessControlType.Allow : AccessControlType.Deny;
+
+                AddAccessControl permissions = new AddAccessControl();
 
                 if (Read)
                 {
-                    per.AddDirectorySecurity(dir, user, FileSystemRights.ReadAndExecute, FSAccess);
+                    permissions.AddDirectorySecurity(dir, user, FileSystemRights.ReadAndExecute, _fsAccess);
                 }
-                else if (Write)
+
+                if (Write)
                 {
-                    per.AddDirectorySecurity(dir, user, FileSystemRights.ReadAndExecute, FSAccess);
-                    per.AddDirectorySecurity(dir, user, FileSystemRights.Write, FSAccess);
+                    permissions.AddDirectorySecurity(dir, user, FileSystemRights.Write, _fsAccess);
                 }
-                else if (Modify)
+
+                if (Modify)
                 {
-                    per.AddDirectorySecurity(dir, user, FileSystemRights.Modify, FSAccess);
+                    permissions.AddDirectorySecurity(dir, user, FileSystemRights.Modify, _fsAccess);
                 }
 
                 Debug.WriteLine("AclSet Finished");
@@ -91,6 +76,20 @@ namespace SwiftNTFS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Logs an event using the LoggerEvent.
+        /// </summary>
+        /// <param name="message">Message to log</param>
+        private void LogEvent(string message)
+        {
+            LoggerEventArgs loggerEventArgs = new LoggerEventArgs
+            {
+                OriginName = Name,
+                OriginMessage = message
+            };
+            LoggerEvent?.Invoke(this, loggerEventArgs);
         }
     }
 }

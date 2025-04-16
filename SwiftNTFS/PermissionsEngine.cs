@@ -51,10 +51,16 @@ namespace SwiftNTFS
 
         }
 
-        private string gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, OriginalFolderName, gOwner;
-        public string Accessflag { get; set; }
-        public bool? NTFSFlag = true;
-        public int? Index;
+        private string gADServer = string.Empty;
+        private string gOUpath = string.Empty;
+        private string gFolderNamewWithFlag = string.Empty;
+        private string @gfsloc = string.Empty;
+        private string OriginalFolderName = string.Empty;
+        private string gOwner = string.Empty;
+
+        public string Accessflag { get; set; } = string.Empty;
+        public bool? NTFSFlag { get; set; } = true;
+        public int? Index { get; set; } = 0;
 
 
         private string TBNameBuilder(string name, string r)
@@ -71,9 +77,9 @@ namespace SwiftNTFS
         /// </param>
         /// <param name="checkBox">System.Windows.Controls.CheckBox Name</param>
         /// <param name="ADuser">AD user or group whom will be granted access to FS Filder</param>
-        /// <param name="ADServer">Active Directory domain name.</param>
-        /// <param name="OUpath">Active directory Organisational Unit Path</param>
-
+        /// <summary>
+        /// Auto AD Group
+        /// </summary>
         //create new ACL
         private ACL acl = new ACL();
 
@@ -113,7 +119,7 @@ namespace SwiftNTFS
             else if (Accessflag == "RWX")
             {
                 acl.Modify = true;
-                FolderNamewWithFlag = TBNameBuilder(FolderName, "RWX");
+            @gfsloc = SwiftIO.BuildDir(FolderName, FileServerRootDirectory);
             }
 
             gADServer = ADServer;
@@ -124,9 +130,9 @@ namespace SwiftNTFS
             OriginalFolderName = FolderName;
             engineEventArgs.OriginMessage = "DataSet Operation Finished";
             DataSetFinished?.Invoke(this, engineEventArgs);
-        }
+            LocalFunctions.CreateAdGroup(gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, string.Empty);
 
-        public void Start()
+            acl.SetPermissions(@gfsloc, gFolderNamewWithFlag);
         {
             
             Debug.WriteLine("Main Operation Started");

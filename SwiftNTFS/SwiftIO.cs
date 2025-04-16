@@ -27,7 +27,7 @@ namespace SwiftNTFS
 
             foreach (var item in ts)
             {
-                if ((int)item.Index == SearchIndex)
+                if (item.Index == SearchIndex)
                 {
                    
                     ts.Remove(item);
@@ -47,10 +47,11 @@ namespace SwiftNTFS
             eventArgs.OriginName = name;
             eventArgs.LogMessage = "DeleteListItemByQuery operations Started";
             LoggerEvent?.Invoke(null, eventArgs);
-            var quesry = from PermissionsEngine a in ts
-                         where a.Index == SearchIndex
-                         select a;
-            ts.Remove(quesry.FirstOrDefault());
+            var query = ts.FirstOrDefault(a => a.Index == SearchIndex);
+            if (query != null)
+            {
+                ts.Remove(query);
+            }
         }
 
         /// <summary>
@@ -82,15 +83,15 @@ namespace SwiftNTFS
         /// </summary>
         /// <param name="FolderName">Folder name</param>
         /// <param name="Location">Top level folder.</param>
-        /// <returns></returns>
-        public static string BulldDir(string FolderName, string Location)
+        public static string BuildDir(string FolderName, string Location)
         {
             LoggerEventArgs eventArgs = new LoggerEventArgs();
             eventArgs.OriginName = name;
-            eventArgs.LogMessage = "BulldDir";
+            eventArgs.LogMessage = "BuildDir";
             LoggerEvent?.Invoke(null, eventArgs);
 
             return System.IO.Path.Combine(Location, FolderName);
+        }
         }
     }
 }
