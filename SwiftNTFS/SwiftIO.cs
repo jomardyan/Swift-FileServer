@@ -12,6 +12,15 @@ namespace SwiftNTFS
         public static readonly string name = "SwiftIO";
         public static event EventHandler<LoggerEventArgs> LoggerEvent;
 
+        private static void LogEvent(string originName, string message)
+        {
+            LoggerEventArgs eventArgs = new LoggerEventArgs
+            {
+                OriginName = originName,
+                LogMessage = message
+            };
+            LoggerEvent?.Invoke(null, eventArgs);
+        }
 
         //Notice
         /// <summary>
@@ -20,10 +29,7 @@ namespace SwiftNTFS
         /// <param name="SearchIndex">PermissionsEngine Object Index</param>
         public static void DeleteListItem(List<PermissionsEngine> ts, int SearchIndex)
         {
-            LoggerEventArgs eventArgs = new LoggerEventArgs();
-            eventArgs.OriginName = name;
-            eventArgs.LogMessage = "DeleteListItem operations Started";
-            LoggerEvent?.Invoke(null, eventArgs);
+            LogEvent(name, "DeleteListItem operations Started");
 
             foreach (var item in ts)
             {
@@ -43,10 +49,7 @@ namespace SwiftNTFS
         /// <param name="SearchIndex">PermissionsEngine Object Index</param>
         public static void DeleteListItemByQuery(List<PermissionsEngine> ts, int SearchIndex)
         {
-            LoggerEventArgs eventArgs = new LoggerEventArgs();
-            eventArgs.OriginName = name;
-            eventArgs.LogMessage = "DeleteListItemByQuery operations Started";
-            LoggerEvent?.Invoke(null, eventArgs);
+            LogEvent(name, "DeleteListItemByQuery operations Started");
             var query = ts.FirstOrDefault(a => a.Index == SearchIndex);
             if (query != null)
             {
@@ -60,10 +63,7 @@ namespace SwiftNTFS
         /// <param name="Location">Top level folder.</param>
         public static void CreateFolder(string Location)
         {
-            LoggerEventArgs eventArgs = new LoggerEventArgs();
-            eventArgs.OriginName = name;
-            eventArgs.LogMessage = "CreateFolder operations Started";
-            LoggerEvent?.Invoke(null, eventArgs);
+            LogEvent(name, "CreateFolder operations Started");
 
             Debug.WriteLine("Create Folder Started");
           
@@ -85,10 +85,7 @@ namespace SwiftNTFS
         /// <param name="Location">Top level folder.</param>
         public static string BuildDir(string FolderName, string Location)
         {
-            LoggerEventArgs eventArgs = new LoggerEventArgs();
-            eventArgs.OriginName = name;
-            eventArgs.LogMessage = "BuildDir";
-            LoggerEvent?.Invoke(null, eventArgs);
+            LogEvent(name, "BuildDir");
 
             return System.IO.Path.Combine(Location, FolderName);
         }

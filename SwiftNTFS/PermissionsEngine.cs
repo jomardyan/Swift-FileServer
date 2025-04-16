@@ -68,6 +68,28 @@ namespace SwiftNTFS
             string FullName = LocalFunctions.StBuilder(name, r);
             return FullName;
         }
+
+        private void SetAccessFlags(string accessFlag, string folderName)
+        {
+            acl.Access = true;
+
+            switch (accessFlag)
+            {
+                case "R":
+                    acl.Read = true;
+                    gFolderNamewWithFlag = TBNameBuilder(folderName, "R");
+                    break;
+                case "RW":
+                    acl.Write = true;
+                    gFolderNamewWithFlag = TBNameBuilder(folderName, "RW");
+                    break;
+                case "RWX":
+                    acl.Modify = true;
+                    gFolderNamewWithFlag = TBNameBuilder(folderName, "RWX");
+                    break;
+            }
+        }
+
         /// <summary>
         /// Start Giving permission operation
         /// </summary>
@@ -103,28 +125,10 @@ namespace SwiftNTFS
             #endregion
             //
             // Set access
-            acl.Access = true;
-            string FolderNamewWithFlag = "";
-            if (Accessflag == "R")
-            {
-                acl.Read = true;
-                FolderNamewWithFlag = TBNameBuilder(FolderName, "R");
-            }
-            else if (Accessflag == "RW")
-            {
-                acl.Write = true;
-
-                FolderNamewWithFlag = TBNameBuilder(FolderName, "RW");
-            }
-            else if (Accessflag == "RWX")
-            {
-                acl.Modify = true;
-            @gfsloc = SwiftIO.BuildDir(FolderName, FileServerRootDirectory);
-            }
+            SetAccessFlags(Accessflag, FolderName);
 
             gADServer = ADServer;
             gOUpath = ActiveDirectoryOUPath;
-            gFolderNamewWithFlag = FolderNamewWithFlag;
             @gfsloc = SwiftIO.BulldDir(FolderName, FileServerRootDirectory);
             gOwner = Owner;
             OriginalFolderName = FolderName;
