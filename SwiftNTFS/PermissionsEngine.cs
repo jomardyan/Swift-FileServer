@@ -136,10 +136,9 @@ namespace SwiftNTFS
             DataSetFinished?.Invoke(this, engineEventArgs);
             LocalFunctions.CreateAdGroup(gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, string.Empty);
 
-            acl.SetPermissions(@gfsloc, gFolderNamewWithFlag);
-        {
-            
-            Debug.WriteLine("Main Operation Started");
+        acl.SetPermissions(@gfsloc, gFolderNamewWithFlag);
+        
+        Debug.WriteLine("Main Operation Started");
             LocalFunctions.CreadeAdGroup(gADServer, gOUpath, gFolderNamewWithFlag, @gfsloc, string.Empty);
             SwiftIO.CreateFolder(@gfsloc);
             acl.Set(@gfsloc, gFolderNamewWithFlag);
@@ -149,3 +148,4 @@ namespace SwiftNTFS
         }
     }
 }
+// End of file
